@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/starlight": "^0.42.6",
     "astro": "^7.2.10",
+    "dotenv": "^18.0.8",
     "sharp": "^0.35.3"
   }
 }

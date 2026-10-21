@@ -1,19 +1,29 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import 'dotenv/config';
+
+const site = process.env.SITE_URL || 'https://docs-dev.ranuoutdoor.id';
+const port = Number(process.env.PORT) || 5176;
+const allowedHosts = process.env.ALLOWED_HOSTS
+	? (process.env.ALLOWED_HOSTS === 'true'
+		? true
+		: process.env.ALLOWED_HOSTS.split(',').map((h) => h.trim()).filter(Boolean))
+	: ['docs-dev.ranuoutdoor.id', '.ranuoutdoor.id', 'localhost', '127.0.0.1'];
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://docs-dev.ranuoutdoor.id',
+	site,
 	server: {
 		host: true,
+		port,
 	},
 	vite: {
 		server: {
-			allowedHosts: ['docs-dev.ranuoutdoor.id', '.ranuoutdoor.id', 'localhost', '127.0.0.1'],
+			allowedHosts,
 		},
 		preview: {
-			allowedHosts: ['docs-dev.ranuoutdoor.id', '.ranuoutdoor.id', 'localhost', '127.0.0.1'],
+			allowedHosts,
 		},
 	},
 	integrations: [
