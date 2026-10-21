@@ -1,34 +1,43 @@
 ---
-title: Dokumentasi RanuPod
-description: Panduan arsitektur, operasional, dan integrasi platform cloud PaaS RanuPod.
+title: Dokumentasi Pengembang RanuPod
+description: Pelajari cara men-deploy, mengelola, dan memantau aplikasi Anda di platform cloud PaaS RanuPod.
 template: splash
 hero:
-  tagline: Platform-as-a-Service mandiri dengan zero-config container builds, isolasi jaringan zero-trust, dan observabilitas real-time bawaan.
+  tagline: Deploy kode aplikasi Anda langsung dari GitHub ke kontainer terisolasi dengan auto-scaling, zero cold-starts, dan observabilitas real-time bawaan.
   actions:
-    - text: Mulai Eksplorasi
-      link: /architecture/system-topology/
+    - text: Mulai Deploy (Quickstart)
+      link: /getting-started/quickstart/
       icon: right-arrow
-    - text: Panduan Operasional
-      link: /operations/kubernetes-and-networking/
-      icon: external
+    - text: Pasang Ranu CLI
+      link: /getting-started/cli/
+      icon: laptop
       variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Pilar Dokumentasi
+## Apa yang Membuat RanuPod Berbeda?
 
 <CardGrid stagger>
-	<Card title="Topologi & Microservices" icon="rocket">
-		Pelajari arsitektur decoupled antara `ranu-core`, `ranu-worker`, `ranu-operator`, dan dashboard console.
+	<Card title="Zero-Config Build Engine" icon="rocket">
+		Cukup hubungkan repositori Git. RanuPod mendeteksi bahasa pemrograman (`package.json`, `go.mod`, `requirements.txt`, `composer.json`) dan membuat image kontainer produksi yang optimal secara otomatis.
 	</Card>
-	<Card title="Isolasi Jaringan & K3s" icon="shield">
-		Bagaimana namespace `rp-{proj}-{env}` diamankan secara ketat dengan Cilium eBPF NetworkPolicy.
+	<Card title="Isolasi Tingkat Hardware" icon="shield">
+		Setiap proyek berjalan di dalam lingkungan private terisolasi dengan proteksi jaringan zero-trust tanpa risiko kebocoran data antar pengguna.
 	</Card>
-	<Card title="Railpack & Build Engine" icon="setting">
-		Build OCI image multi-arch secara asinkron via Redis Asynq dan BuildKit daemon tanpa menulis Dockerfile.
+	<Card title="Observabilitas Bawaan Tanpa Agen" icon="magnifier">
+		Pantau log real-time (**RanuLog**), pelacakan latensi antar-layanan (**RanuTrace**), hingga skor Web Vitals pengguna (**RanuRUM**) tanpa perlu menginstal pihak ketiga seperti Datadog.
 	</Card>
-	<Card title="Konfigurasi & Environment" icon="document">
-		Kamus lengkap env vars, secret token, JWT Logto scopes, dan parameter runtime seluruh layanan.
+	<Card title="Transparan dalam Rupiah" icon="seti:salesforce">
+		Harga transparan dalam mata uang IDR dengan opsi paket langganan bulanan atau Pay-As-You-Go harian yang dihitung per detik pemakaian aktif.
 	</Card>
 </CardGrid>
+
+---
+
+## Alur Singkat Deployment
+
+1. **Buat Proyek**: Buat kelompok aplikasi baru di [Console Dashboard](https://console-dev.ranuoutdoor.id).
+2. **Koneksikan Repositori**: Pilih repositori GitHub publik atau privat yang ingin Anda jalankan.
+3. **Konfigurasi Lingkungan**: Masukkan variabel lingkungan seperti database URL atau secret API key.
+4. **Deploy & Akses**: Dalam waktu kurang dari 60 detik, aplikasi Anda aktif dengan URL HTTPS gratis (`*.ranupod.app`) atau domain kustom Anda sendiri.

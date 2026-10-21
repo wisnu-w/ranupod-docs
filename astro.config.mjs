@@ -29,7 +29,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'RanuPod Docs',
-			description: 'Dokumentasi Arsitektur, Panduan Operasional, dan Deployment Platform RanuPod',
+			description: 'Panduan Pengembang untuk Deploy, Mengelola, dan Memantau Aplikasi di RanuPod',
 			logo: {
 				src: './src/assets/logo.svg',
 			},
@@ -40,17 +40,42 @@ export default defineConfig({
 				{
 					label: 'Memulai',
 					items: [
-						{ label: 'Ringkasan & Pengenalan', slug: '' },
-						{ label: 'Topologi Sistem', slug: 'architecture/system-topology' },
+						{ label: 'Pengantar RanuPod', slug: '' },
+						{ label: 'Quickstart Deploy (60 Detik)', slug: 'getting-started/quickstart' },
+						{ label: 'Ranu CLI Reference', slug: 'getting-started/cli' },
 					],
 				},
 				{
-					label: 'Operasional & Infrastruktur',
+					label: 'Framework & Bahasa',
 					items: [
-						{ label: 'Kubernetes & Jaringan', slug: 'operations/kubernetes-and-networking' },
-						{ label: 'Railpack & Worker Builder', slug: 'operations/railpack-and-worker' },
-						{ label: 'Konfigurasi & Environment', slug: 'operations/configuration-and-env' },
-						{ label: 'Production Checklist', slug: 'operations/production-checklist' },
+						{ label: 'Node.js & Next.js', slug: 'frameworks/nodejs' },
+						{ label: 'Go (Golang)', slug: 'frameworks/golang' },
+						{ label: 'Python & FastAPI', slug: 'frameworks/python' },
+						{ label: 'PHP & Laravel', slug: 'frameworks/php' },
+						{ label: 'Custom Dockerfile', slug: 'frameworks/dockerfile' },
+					],
+				},
+				{
+					label: 'Fitur & Konfigurasi',
+					items: [
+						{ label: 'Environment Variables & Secrets', slug: 'guides/environment-variables' },
+						{ label: 'Custom Domain & Auto-SSL', slug: 'guides/custom-domains' },
+						{ label: 'Persistent Storage & Database', slug: 'guides/persistent-storage' },
+						{ label: 'Alokasi Sumber Daya & Scaling', slug: 'guides/scaling' },
+					],
+				},
+				{
+					label: 'Observabilitas (RanuObserve)',
+					items: [
+						{ label: 'RanuLog (Live Streaming Log)', slug: 'observability/ranulog' },
+						{ label: 'RanuTrace (Distributed Latency)', slug: 'observability/ranutrace' },
+						{ label: 'RanuRUM (Web Vitals Monitoring)', slug: 'observability/ranurum' },
+					],
+				},
+				{
+					label: 'Billing & Langganan',
+					items: [
+						{ label: 'Paket Bulanan & Pay-As-You-Go', slug: 'billing/pricing-and-payg' },
 					],
 				},
 			],
