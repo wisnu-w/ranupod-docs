@@ -1,0 +1,34 @@
+---
+title: Dokumentasi RanuPod
+description: Panduan arsitektur, operasional, dan integrasi platform cloud PaaS RanuPod.
+template: splash
+hero:
+  tagline: Platform-as-a-Service mandiri dengan zero-config container builds, isolasi jaringan zero-trust, dan observabilitas real-time bawaan.
+  actions:
+    - text: Mulai Eksplorasi
+      link: /architecture/system-topology/
+      icon: right-arrow
+    - text: Panduan Operasional
+      link: /operations/kubernetes-and-networking/
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Pilar Dokumentasi
+
+<CardGrid stagger>
+	<Card title="Topologi & Microservices" icon="rocket">
+		Pelajari arsitektur decoupled antara `ranu-core`, `ranu-worker`, `ranu-operator`, dan dashboard console.
+	</Card>
+	<Card title="Isolasi Jaringan & K3s" icon="shield">
+		Bagaimana namespace `rp-{proj}-{env}` diamankan secara ketat dengan Cilium eBPF NetworkPolicy.
+	</Card>
+	<Card title="Railpack & Build Engine" icon="setting">
+		Build OCI image multi-arch secara asinkron via Redis Asynq dan BuildKit daemon tanpa menulis Dockerfile.
+	</Card>
+	<Card title="Konfigurasi & Environment" icon="document">
+		Kamus lengkap env vars, secret token, JWT Logto scopes, dan parameter runtime seluruh layanan.
+	</Card>
+</CardGrid>
