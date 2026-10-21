@@ -5,6 +5,17 @@ import starlight from '@astrojs/starlight';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://docs-dev.ranuoutdoor.id',
+	server: {
+		host: true,
+	},
+	vite: {
+		server: {
+			allowedHosts: ['docs-dev.ranuoutdoor.id', '.ranuoutdoor.id', 'localhost', '127.0.0.1'],
+		},
+		preview: {
+			allowedHosts: ['docs-dev.ranuoutdoor.id', '.ranuoutdoor.id', 'localhost', '127.0.0.1'],
+		},
+	},
 	integrations: [
 		starlight({
 			title: 'RanuPod Docs',
