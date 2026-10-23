@@ -3,41 +3,61 @@ title: Dokumentasi Pengembang RanuPod
 description: Pelajari cara men-deploy, mengelola, dan memantau aplikasi Anda di platform cloud PaaS RanuPod.
 template: splash
 hero:
-  tagline: Deploy kode aplikasi Anda langsung dari GitHub ke kontainer terisolasi dengan auto-scaling, zero cold-starts, dan observabilitas real-time bawaan.
+  tagline: Platform-as-a-Service (PaaS) modern untuk meluncurkan kode langsung dari GitHub ke kontainer K3s berkecepatan tinggi dengan auto-scaling, zero cold-starts, dan observabilitas real-time bawaan.
   actions:
-    - text: Mulai Deploy (Quickstart)
+    - text: Mulai Deploy (Quickstart 60 Detik)
       link: /getting-started/quickstart/
       icon: right-arrow
     - text: Pasang Ranu CLI
       link: /getting-started/cli/
       icon: laptop
       variant: minimal
+    - text: Pelajari Arsitektur
+      link: /concepts/architecture/
+      icon: open-book
+      variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Apa yang Membuat RanuPod Berbeda?
+## Mengapa Memilih RanuPod?
 
 <CardGrid stagger>
 	<Card title="Zero-Config Build Engine" icon="rocket">
-		Cukup hubungkan repositori Git. RanuPod mendeteksi bahasa pemrograman (`package.json`, `go.mod`, `requirements.txt`, `composer.json`) dan membuat image kontainer produksi yang optimal secara otomatis.
+		Cukup hubungkan repositori Git. Mesin build Railpack & Nixpacks otomatis mendeteksi dependensi (`package.json`, `go.mod`, `requirements.txt`, `composer.json`) dan membuat image OCI standar produksi dalam hitungan detik.
 	</Card>
 	<Card title="Isolasi Tingkat Hardware" icon="shield">
-		Setiap proyek berjalan di dalam lingkungan private terisolasi dengan proteksi jaringan zero-trust tanpa risiko kebocoran data antar pengguna.
+		Setiap proyek berjalan di dalam lingkungan private terisolasi (`rp-{projectID}-{stage}`) dengan proteksi jaringan zero-trust Cilium tanpa risiko kebocoran data antar pengguna.
 	</Card>
 	<Card title="Observabilitas Bawaan Tanpa Agen" icon="magnifier">
-		Pantau log real-time (**RanuLog**), pelacakan latensi antar-layanan (**RanuTrace**), hingga skor Web Vitals pengguna (**RanuRUM**) tanpa perlu menginstal pihak ketiga seperti Datadog.
+		Pantau log real-time (**[RanuLog](/observability/ranulog/)**), pelacakan latensi antar-layanan (**[RanuTrace](/observability/ranutrace/)**), hingga skor Web Vitals browser (**[RanuRUM](/observability/ranurum/)**) tanpa biaya instalasi pihak ketiga.
 	</Card>
-	<Card title="Transparan dalam Rupiah" icon="seti:salesforce">
-		Harga transparan dalam mata uang IDR dengan opsi paket langganan bulanan atau Pay-As-You-Go harian yang dihitung per detik pemakaian aktif.
+	<Card title="Transparan dalam Rupiah (IDR)" icon="seti:salesforce">
+		Harga transparan dalam mata uang Rupiah tanpa risiko fluktuasi kurs. Tersedia **Free Tier selamanya**, paket bulanan terprediksi, dan **Pay-As-You-Go per detik presisi**.
 	</Card>
 </CardGrid>
 
 ---
 
-## Alur Singkat Deployment
+## Panduan Cepat Berdasarkan Kebutuhan
 
-1. **Buat Proyek**: Buat kelompok aplikasi baru di [Console Dashboard](https://console-dev.ranuoutdoor.id).
-2. **Koneksikan Repositori**: Pilih repositori GitHub publik atau privat yang ingin Anda jalankan.
-3. **Konfigurasi Lingkungan**: Masukkan variabel lingkungan seperti database URL atau secret API key.
-4. **Deploy & Akses**: Dalam waktu kurang dari 60 detik, aplikasi Anda aktif dengan URL HTTPS gratis (`*.ranupod.app`) atau domain kustom Anda sendiri.
+### 1. Pahami Konsep & Arsitektur
+- [Hirarki Proyek, Service & Stage](/concepts/projects-services-environments/): Pahami relasi Tenant, Project, Blueprint Service, dan K3s Namespace.
+- [Arsitektur Sistem & Build Engine](/concepts/architecture/): Cara kerja Control Plane, Redis Asynq, BuildKit Worker, dan Operator K3s.
+- [Siklus Deployment & Rollback Instan](/guides/deployments-and-rollbacks/): Bagaimana status `superseded` menghemat biaya dan cara rollback sub-detik.
+
+### 2. Pilih Runtime Bahasa Anda
+- [Node.js & Next.js](/frameworks/nodejs/): Standalone mode, Express, NestJS, dan pnpm/bun support.
+- [Go (Golang)](/frameworks/golang/): Kompilasi statis berkecepatan tinggi dengan Chi, Fiber, atau Gin.
+- [Python & FastAPI](/frameworks/python/): FastAPI, Django, Flask dengan Gunicorn & Uvicorn.
+- [PHP & Laravel](/frameworks/php/): Laravel modern dengan Nginx, PHP-FPM, dan persistent storage.
+- [Custom Dockerfile](/frameworks/dockerfile/): Multi-stage builds, non-root security, dan BuildKit caching.
+
+### 3. Template Siap Pakai (1-Klik)
+- [Katalog Template](/guides/templates/): Luncurkan database PostgreSQL, Redis, n8n automation, Evolution API WhatsApp, atau MinIO Object Storage dengan sekali klik.
+
+### 4. Konfigurasi Produksi
+- [Environment Variables & Secretbox](/guides/environment-variables/): Enkripsi AES-256-GCM at-rest dan pemisahan env frontend vs backend.
+- [Custom Domain & Auto-SSL](/guides/custom-domains/): Sambungkan domain kustom Anda dengan sertifikat Let's Encrypt otomatis.
+- [Persistent Storage (NVMe)](/guides/persistent-storage/): Volume penyimpanan permanen berkecepatan tinggi tahan restart.
+- [Alokasi Sumber Daya & HPA](/guides/scaling/): Atur limit vCPU/RAM dan Horizontal Auto-Scaling saat lonjakan traffic.

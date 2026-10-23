@@ -46,6 +46,35 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'Konsep & Arsitektur',
+					items: [
+						{ label: 'Hirarki Proyek & Environment', slug: 'concepts/projects-services-environments' },
+						{ label: 'Arsitektur Sistem & Build Engine', slug: 'concepts/architecture' },
+					],
+				},
+				{
+					label: 'Template 1-Klik',
+					items: [
+						{ label: 'Katalog Template Siap Pakai', slug: 'guides/templates' },
+					],
+				},
+				{
+					label: 'Deployment & Rilis',
+					items: [
+						{ label: 'Siklus Deployment & Rollback', slug: 'guides/deployments-and-rollbacks' },
+						{ label: 'Alokasi Sumber Daya & Auto-Scaling', slug: 'guides/scaling' },
+						{ label: 'Health Checks & Graceful Shutdown', slug: 'guides/health-checks' },
+					],
+				},
+				{
+					label: 'Konfigurasi & Storage',
+					items: [
+						{ label: 'Environment Variables & Secrets', slug: 'guides/environment-variables' },
+						{ label: 'Custom Domain & Auto-SSL', slug: 'guides/custom-domains' },
+						{ label: 'Persistent Storage (NVMe Volumes)', slug: 'guides/persistent-storage' },
+					],
+				},
+				{
 					label: 'Framework & Bahasa',
 					items: [
 						{ label: 'Node.js & Next.js', slug: 'frameworks/nodejs' },
@@ -53,15 +82,6 @@ export default defineConfig({
 						{ label: 'Python & FastAPI', slug: 'frameworks/python' },
 						{ label: 'PHP & Laravel', slug: 'frameworks/php' },
 						{ label: 'Custom Dockerfile', slug: 'frameworks/dockerfile' },
-					],
-				},
-				{
-					label: 'Fitur & Konfigurasi',
-					items: [
-						{ label: 'Environment Variables & Secrets', slug: 'guides/environment-variables' },
-						{ label: 'Custom Domain & Auto-SSL', slug: 'guides/custom-domains' },
-						{ label: 'Persistent Storage & Database', slug: 'guides/persistent-storage' },
-						{ label: 'Alokasi Sumber Daya & Scaling', slug: 'guides/scaling' },
 					],
 				},
 				{
