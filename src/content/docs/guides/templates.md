@@ -61,6 +61,29 @@ Alat monitoring mandiri (*self-hosted*) yang powerful seperti "Uptime Robot". Me
 - **Volume Rekomendasi**: `5 GB NVMe` terpasang di `/app/data` (menyimpan database SQLite internal `kuma.db`, histori insiden, dan pengaturan alert).
 - **Notifikasi Terintegrasi**: Dapat langsung dihubungkan ke bot Telegram atau service Evolution API internal di RanuPod untuk notifikasi downtime WhatsApp instan.
 
+### G. Meilisearch (Full-Text & Vector Search Engine)
+Mesin pencari *open-source* berbasis Rust yang sangat cepat, mendukung toleransi salah ketik (*typo tolerance*), sinonim, *faceted search*, dan *hybrid vector search* untuk RAG/AI.
+- **Port Ingress / Internal**: `7700`
+- **Volume Rekomendasi**: `10 GB NVMe` terpasang di `/meili_data`
+- **Variabel Wajib**: `MEILI_MASTER_KEY` (Kunci otentikasi API admin & pencarian).
+
+### H. Umami Analytics (Privacy-First Web Analytics)
+Alternatif Google Analytics yang ringan, modern, dan patuh GDPR tanpa menggunakan cookie pelacak.
+- **Port Ingress**: `3000`
+- **Variabel Wajib**:
+  - `DATABASE_URL`: String koneksi PostgreSQL internal Anda (`postgresql://postgres:password@postgres:5432/ranupod`).
+  - `APP_SECRET`: Kunci enkripsi sesi aplikasi.
+
+### I. Mailpit (SMTP & Email Testing Sandbox)
+Server SMTP sandbox untuk menangkap dan menguji seluruh pengiriman email di environment `staging` atau `development` tanpa takut terkirim ke alamat email pelanggan asli.
+- **Port Web UI**: `8025` (Kotak masuk visual via browser)
+- **Port SMTP Internal**: `1025` (Arahkan `SMTP_HOST=mailpit` dan `SMTP_PORT=1025` dari backend Anda).
+
+### J. Flowise AI (Visual LLM & RAG Builder)
+Antarmuka visual *drag-and-drop* berbasis LangChain untuk membangun *custom chatbot*, *AI Agent*, dan *Retrieval-Augmented Generation* (RAG) yang terhubung ke OpenAI, Anthropic, Ollama, maupun database vektor.
+- **Port Ingress**: `3000`
+- **Variabel Bawaan**: `FLOWISE_USERNAME` dan `FLOWISE_PASSWORD` untuk mengamankan dashboard builder.
+
 ---
 
 ## 2. Cara Meluncurkan Template
