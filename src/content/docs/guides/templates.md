@@ -55,6 +55,12 @@ Penyimpanan objek berskala tinggi dengan API yang 100% kompatibel dengan Amazon 
 - **Volume Default**: `20 GB NVMe` terpasang di `/data`
 - **Kompatibilitas**: Gunakan AWS SDK standar (AWS S3 Go, Node.js `@aws-sdk/client-s3`, atau Python `boto3`) dengan mengarahkan `endpoint` ke alamat MinIO internal.
 
+### F. Uptime Kuma (Monitoring & Status Page)
+Alat monitoring mandiri (*self-hosted*) yang powerful seperti "Uptime Robot". Mendukung pemantauan uptime HTTP(s), Ping, port TCP, DNS Query, sertifikat SSL, serta pembuatan halaman status (*Status Page*) publik yang cantik dengan integrasi 90+ saluran notifikasi (Telegram, Discord, Slack, WhatsApp, Email).
+- **Port Ingress**: `3001` (disediakan domain publik HTTPS otomatis)
+- **Volume Rekomendasi**: `5 GB NVMe` terpasang di `/app/data` (menyimpan database SQLite internal `kuma.db`, histori insiden, dan pengaturan alert).
+- **Notifikasi Terintegrasi**: Dapat langsung dihubungkan ke bot Telegram atau service Evolution API internal di RanuPod untuk notifikasi downtime WhatsApp instan.
+
 ---
 
 ## 2. Cara Meluncurkan Template
